@@ -7,9 +7,9 @@ namespace Inheritance
     //Business Classes
     class CustomerManager
     {
-        public void Add(Customer customer)
+        public void PrintCustomerNo(Customer customer)
         {
-
+            Console.WriteLine(customer.CustomerNo);
         }
     }
 }
