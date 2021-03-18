@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance", "Inheritance\Inheritance.csproj", "{17469B28-6BF5-43F2-85B9-90AB39273161}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inheritance", "Inheritance\Inheritance.csproj", "{17469B28-6BF5-43F2-85B9-90AB39273161}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\Collections.csproj", "{3E6AC9AC-B04B-4840-B339-E63DD1912B4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "Collections\Collections.csproj", "{3E6AC9AC-B04B-4840-B339-E63DD1912B4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericsIntro", "GenericsIntro\GenericsIntro.csproj", "{ABF45A71-786E-497B-A703-3B40956B6AD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericsIntro", "GenericsIntro\GenericsIntro.csproj", "{ABF45A71-786E-497B-A703-3B40956B6AD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{E59C1958-7B32-4FCA-87B4-CA1926046280}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceAbstractDemo", "InterfaceAbstractDemo\InterfaceAbstractDemo.csproj", "{1146DC69-B235-46D1-BFCE-885CA4891DDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{ABF45A71-786E-497B-A703-3B40956B6AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABF45A71-786E-497B-A703-3B40956B6AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABF45A71-786E-497B-A703-3B40956B6AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E59C1958-7B32-4FCA-87B4-CA1926046280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E59C1958-7B32-4FCA-87B4-CA1926046280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E59C1958-7B32-4FCA-87B4-CA1926046280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E59C1958-7B32-4FCA-87B4-CA1926046280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1146DC69-B235-46D1-BFCE-885CA4891DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1146DC69-B235-46D1-BFCE-885CA4891DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1146DC69-B235-46D1-BFCE-885CA4891DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1146DC69-B235-46D1-BFCE-885CA4891DDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
