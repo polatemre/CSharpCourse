@@ -1,2 +1,2 @@
 # CSharpCourse
-Engin Demiroğ Yazılım Yetiştirici Kampı
+Engin Demiroğ Yazılım Geliştirici Yetiştirme Kampı
