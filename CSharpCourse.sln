@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "Collections\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericsIntro", "GenericsIntro\GenericsIntro.csproj", "{ABF45A71-786E-497B-A703-3B40956B6AD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{E59C1958-7B32-4FCA-87B4-CA1926046280}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "Interface\Interface.csproj", "{E59C1958-7B32-4FCA-87B4-CA1926046280}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceAbstractDemo", "InterfaceAbstractDemo\InterfaceAbstractDemo.csproj", "{1146DC69-B235-46D1-BFCE-885CA4891DDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterfaceAbstractDemo", "InterfaceAbstractDemo\InterfaceAbstractDemo.csproj", "{1146DC69-B235-46D1-BFCE-885CA4891DDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceAbstractDemo2", "InterfaceAbstractDemo2\InterfaceAbstractDemo2.csproj", "{DF91BB0B-601E-441C-BF8C-8304F2C32EA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1146DC69-B235-46D1-BFCE-885CA4891DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1146DC69-B235-46D1-BFCE-885CA4891DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1146DC69-B235-46D1-BFCE-885CA4891DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF91BB0B-601E-441C-BF8C-8304F2C32EA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF91BB0B-601E-441C-BF8C-8304F2C32EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF91BB0B-601E-441C-BF8C-8304F2C32EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF91BB0B-601E-441C-BF8C-8304F2C32EA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
