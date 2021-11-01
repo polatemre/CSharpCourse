@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Exercises
+namespace Exercise
 {
     class Program
     {
@@ -24,6 +24,7 @@ namespace Exercises
             //};
             //Console.WriteLine(sonuc);
             #endregion
+
             #region Faktoriyel Bulma
 
             //int sayi = 0;
@@ -53,6 +54,7 @@ namespace Exercises
             //Console.WriteLine("Sonuç: " + fakt);
 
             #endregion
+
             #region String İşlemleri
             #region Adımızın ilkten 3, soyadımızın sondan 5.karakterini getirelim
 
@@ -213,6 +215,7 @@ namespace Exercises
             //}
             #endregion
             #endregion
+
             #region Regular Exporessions Operators
             #region ^ Operatörü
             //Satır başının istenilen ifadeyle başlamasını sağlar
@@ -337,6 +340,12 @@ namespace Exercises
 
             #endregion
             #endregion
+
+            #region Collections: ArrayList
+
+            #endregion
+            
+            Console.ReadKey();
         }
     }
 }
