@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace Exercise
 {
@@ -342,10 +343,108 @@ namespace Exercise
             #endregion
 
             #region Collections: ArrayList
+            //int[] yaslar = new int[17];
+            //ArrayList _yaslar = new ArrayList();
+
+            //yaslar[5] = 10;
+            //_yaslar.Add(10);
+
+            //for (int i = 0; i < 17; i++)
+            //{
+            //    yaslar[i] = i + 10;
+            //    _yaslar.Add(i + 10);
+            //}
+
+            //Console.WriteLine(yaslar[5]);
+            //Console.WriteLine(_yaslar[5]);
+
+            ////ArrayList, verilen datayı boxing işlemine tabi tutar.
+            ////ArrayList içerisindeki herhangi bir veriyi talep ettiğimizde o veri object olarak gelecektir. Dolayısıyla kendi türünde işlem yapabilmek için unboxing işlemine tabi tutmamız gerekir. Diziden bir adım geride olduğu tek konu budur. Generic koleksiyonlar buradaki sınırlılıktan dolayı çıkmış gibi düşünebiliriz.
+            //// Koleksiyonlarda eleman sayısını Count propertysi ile öğrenebilmekteyiz.
+
+            //int toplam = 0;
+            //for (int i = 0; i < _yaslar.Count; i++)
+            //{
+            //    if (_yaslar[i] is int)
+            //    {
+            //        toplam += (int)_yaslar[i];
+            //    }
+            //}
+
+            ////ArrayList Collection Initializers
+            //ArrayList arrayList = new ArrayList()
+            //{
+            //    "Ahmet",
+            //    123,
+            //    'a',
+            //    true
+            //};
 
             #endregion
-            
+
+            #region DateTime Struct
+
+            //Console.WriteLine(DateTime.Now); //O anın tarih ve saat,dakika,saniye bilgisini getirir.
+            //Console.WriteLine(DateTime.Today); //O anın tarih bilgisini getirir.
+
+            //DateTime tarih1 = new DateTime(2021, 01, 01);
+            //DateTime tarih2 = new DateTime(2022, 01, 01);
+            //int result = DateTime.Compare(tarih1, tarih2); //Tarih bilgilerinde karşılaştırma yapar.-1,0,1 döner
+
+            //if (result < 0)
+            //{
+            //    //1.tarih daha küçük yani geride demektir.
+            //    Console.WriteLine($"{tarih1} küçüktür {tarih2}");
+            //}
+            //else if(result == 0)
+            //{
+            //    //Her iki tarih eşittir.
+            //    Console.WriteLine($"{tarih1} eşittir {tarih2}");
+
+            //}
+            //else
+            //{
+            //    Console.WriteLine($"{tarih1} büyüktür {tarih2}");
+
+            //}
+
+            //zamanın üzerine ekleme işlemi yapmak için kullanılır.
+            //tarih1.AddYears(1);
+            //tarih1.AddMonths(1);
+            //tarih1.AddHours(1);
+            //tarih1.AddMilliseconds(1);
+            //tarih1.AddDays(1);
+
+            //yasHesapla();
+
+            #endregion
+
+            #region TimeSpan Struct
+
+            //İki tarih arasındaki fark TimeSpan türünde geri dönecektir.
+            //DateTime t1 = DateTime.Now;
+            //DateTime t2 = new DateTime(2000, 1, 1);
+
+            //TimeSpan span = t1 - t2;
+            //Console.WriteLine(span.Days);
+
+            #endregion
+
+
             Console.ReadKey();
+        }
+
+        static public void yasHesapla()
+        {
+            Console.WriteLine("Lütfen doğum tarihi giriniz.");
+            DateTime dogumTarihi = DateTime.Parse(Console.ReadLine());
+
+            int gun = (DateTime.Now - dogumTarihi).Days;
+
+            int yas = gun / 365;
+            int kalan = gun % 365;
+
+            Console.WriteLine($"Yaş: {yas} | {yas + 1} yaşınıza kalan gün sayısı : {365 - kalan + (yas / 4)}");
         }
     }
 }
