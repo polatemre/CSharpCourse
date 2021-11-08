@@ -148,7 +148,7 @@ String işlemlerde stringin bir kısmını kullanmak istiyorsak span yerine Read
 # Regular Expression:
 - ^ operatörü		: Satır başının istenilen ifadeyle başlamasını sağlar.
 - \ operatörü 	: Belirli karakter gruplarını içermesini istiyorsak kullanırız.\d\D\s\S\w\W
--  + operatörü		: Belirtilen gruptaki karakterlerden bir ya da daha fazlasının olmasını istiyorsak kullanılacaktır.
+- ++ operatörü		: Belirtilen gruptaki karakterlerden bir ya da daha fazlasının olmasını istiyorsak kullanılacaktır.
 - | operatörü		: (veya operatörü) Verilen karakterlerden biri olması yeterli.
 - {n} operatörü	: Sabit sayıda karakterin olması isteniyorsa {adet} şeklinde belirtilmeli
 - ? operatörü		: Bu karakterin önüne gelen karakter en fazla bir en az sıfır defa olabilmektedir.
