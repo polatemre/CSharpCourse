@@ -173,4 +173,5 @@
   - Parametrede in keywordü kullanıldığında o parametredeki değişkeni readonly hale getirir.
 
 # Object Oriented Programming
+  -  ``new MyClass()`` şeklinde referanssız bir nesne oluşturulursa bir süre sonra bellekten Garbage Collector tarafından temizlenecektir. Bir referans değişkeni nesneyi işaret etmiyorsa tekrardan bu nesneye erişemeyiz.
   - 
