@@ -6,7 +6,6 @@
 - Object bir türdür, boxing-unboxing. O türe ait metotları kullanmak için unboxing gerekli, türüne uygun bir şekilde unboxing yapılması gerekir.
 - dynamic: Runtime zamanında türü belli olur. Gelecek tür belli değilse kullanılır.
 - var: Compile zamanında türü belli olur, ilk değeri verilmek zorundadır. var yerine eğer biliyorsak değişken türünü belirtmek performans artışı sağlar. 
-- "x is var a" -> Runtime zamanında türü belli olur.
 - const ve readonly: readonly ilk değer ataması sadece tanımlandığı yerde ya da constructor'da yapılabilir. const ise ilk tanımlandığında yapılmak zorundadır.
 - Değişken türünü en uygun aralıkta belirlemek performans artışı sağlar.
 - ; operatörü: Kod konseptinin bittiğini anlatır. kodlar satır satır değil konsept konsept çalışır.
@@ -30,7 +29,8 @@
 - variable is type: Bir değerin tipini kontrol etmek için kullanılır. (x is bool)
 - variable is null, variable is not null: Null olup olmadığını kontrol eder. sadece null olabilen türlerde kullanılabilir. (x is null, x is not null)
 - Değer türlü değişkenler null değeri alamaz int a = null olamaz.
-- as operatörü: Türüne uygun olmayan unboxing işlemi yapmaya yarar ancak bu durumla karşılaştığında null değere dönüşür. Bu operatör sayesinde program akışını runtime hatası verdirmeden devam ettirebiliriz. Ancak değer türlü değişkenlerde kullanılamaz.
+- as operatörü: As operatörü ise is operatörü ile benzer bir şekilde çalışmaktadır. Arasındaki fark, is operatörü kontrol ile bool bir değer döndürürken as operatörü ilgili tipin referansını döndürmektedir. Eğer yapılan cast işlemi hatalı ise null değerini döndürmektedir.Türüne uygun olmayan unboxing işlemi yapmaya da yarar ancak bu durumla karşılaştığında null değere dönüşür. Bu operatör sayesinde program akışını runtime hatası verdirmeden devam ettirebiliriz. Ancak değer türlü değişkenlerde kullanılamaz.
+- "x is var a" -> Runtime zamanında türü belli olur.
 - Bir değer türlü değişkenin null değer alabilmesi için Nullable(?) kullanılır. int? a = null diyerek yapabiliriz. Nullable yapıldığında is null, as gibi null ile çalışan operatörleri kullanabiliriz.
 - Null-Coalescing: Elimizdeki değişkenin null olma durumuna istinaden farklı bir değeri göndermemizi sağlayan operatördür. 
 - örn: string a = null; a ?? "Merhaba"
