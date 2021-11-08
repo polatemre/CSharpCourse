@@ -415,7 +415,7 @@ namespace Exercise
             //tarih1.AddMilliseconds(1);
             //tarih1.AddDays(1);
 
-            //yasHesapla();
+            //AgeCalculator();
 
             #endregion
 
@@ -430,11 +430,17 @@ namespace Exercise
 
             #endregion
 
+            #region Factorial Recursive
+            //Console.Write("Lütfen faktoriyeli alınacak sayıyı giriniz: ");
+            //Console.WriteLine(Factorial(int.Parse(Console.ReadLine())));
+            #endregion
+
+
 
             Console.ReadKey();
         }
 
-        static public void yasHesapla()
+        public static void AgeCalculator()
         {
             Console.WriteLine("Lütfen doğum tarihi giriniz.");
             DateTime dogumTarihi = DateTime.Parse(Console.ReadLine());
@@ -446,5 +452,64 @@ namespace Exercise
 
             Console.WriteLine($"Yaş: {yas} | {yas + 1} yaşınıza kalan gün sayısı : {365 - kalan + (yas / 4)}");
         }
+
+        public static int Factorial(int fact)
+        {
+            if (fact > 1)
+                return fact * Factorial(--fact);
+            return 1;
+        }
+
+        #region In metod keyword
+        // In keywordu sayesinde parametreye verilen değeri sabit tutabilmekteyiz.
+        // In keywordu metodun parametresini readonly hale getirir.
+        // In keywordu kullanılan parametreyi metot içerisinde değiştirmeye çalıştığımızda derleyici hatası verecektir.
+        static void X(in int a, int b, in char c)
+        {
+            //a = 123;
+            //b = 5;
+            //c = 'a';
+        }
+
+        #endregion
+
+        #region C# 7.0: Local Functions
+        // Local functions: Bir metot içerisinde tanımlanmış metotlardır.
+        // Metotlar class, struct, abstract, interface, record yapılanlarında tanımlanabilmektedir.
+        // C# 7.0'da gelen local function özelliği sayesinde metot içerisinde de metot tanımlanabilmektedir.
+        #region Tanımlama Kuralları
+        // 1. Erişim belirleyici(access modifier) yazılmaz! 
+        // 2. Local function olarak tanımlanan fonksiyon adı tanımlandığı fonksiyonun adından farklı olmalıdır! Aksi takdirde derleyici hatası VERMEZ!!!
+        #endregion
+        #region Kullanım Kuralları
+        // Bir local function sadece tanımlandığı metodun içerisinde kullanılabilir.
+        // Local function tanımlandığı metodun içerisinde her yerden erişilebilir.
+        #endregion
+        #region Amacı
+        // Local function, sadece tek bir metotta tekrarlı bir şekilde kullanılacak bir algoritmayı/kod parçacığını/işlemi o metoda özel bir şekilde tek seferlik tanımlamamızı ve kullanmamızı sağlamaktadır. 
+        #endregion
+        #region Muadilleri
+        // Anonim, Delegate, Func
+        #endregion
+        public static int X()
+        {
+            Y(); 
+
+            void X()
+            {
+                Console.WriteLine("Local function X");
+            }
+
+            void Y()
+            {
+                Console.WriteLine("Local function Y");
+            }
+
+            X();
+
+            return 0;
+        }
+        #endregion
+
     }
 }
