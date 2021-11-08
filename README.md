@@ -26,7 +26,7 @@
 - Normalde iki aynı türdeki sayısal değer üzerinde yapılan aritmetik işlem neticesinde sonuç aynı türde dönecekken, bu iki değer byte ise sonuç her daim int dönecektir. Böyle kabul edilmiştir, istisnadır.
 - Cast operatörü şuralarda kullandık: unboxing, bilinçli tür dönüşümü, char ascii karakter - int dönüşümü.
 
-# is null 
+# null kontrolü
 - variable is type: Bir değerin tipini kontrol etmek için kullanılır. (x is bool)
 - variable is null, variable is not null: Null olup olmadığını kontrol eder. sadece null olabilen türlerde kullanılabilir. (x is null, x is not null)
 - Değer türlü değişkenler null değeri alamaz int a = null olamaz.
