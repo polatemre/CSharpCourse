@@ -1,4 +1,4 @@
-# Not Defteri
+# C# 9.0 Not Defteri
 
 - Primitive: temel tipler: int, char, bool, float...
 - @ operatörü: while, static gibi değişken isimleri verilebilir.
