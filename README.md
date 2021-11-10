@@ -174,4 +174,5 @@
 
 # Object Oriented Programming
   -  ``new MyClass()`` şeklinde referanssız bir nesne oluşturulursa bir süre sonra bellekten Garbage Collector tarafından temizlenecektir. Bir referans değişkeni nesneyi işaret etmiyorsa tekrardan bu nesneye erişemeyiz.
-  - 
+  - Shallow Copy: Referans türlü değişkenlerin/değerlerin default davranışı shallow copy'dir.
+  - Deep Copy: Değer türlü değişkenlerde default davranış deep copy'dir.
