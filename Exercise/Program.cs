@@ -7,16 +7,6 @@ namespace Exercise
     {
         static void Main(string[] args)
         {
-            #region Deep Copy & Shallow Copy
-            #region Deep Copy
-            int a = 5;
-            int b = a; // a yerine değeri olan 5 gelecektir.
-            #endregion
-            #region Shallow Copy
-            // Var olan bir nesnenin, değerin, referansının kopyalanmasıdır. Eldeki değer çoğaltılmaz. Sadece birden fazla referansla işaretlenmiş olur.
-            #endregion
-            #endregion
-
             #region Switch Expression
             //Console.Write("Lütfen 1. sayıyı giriniz: ");
             //int sayi1 = int.Parse(Console.ReadLine());
