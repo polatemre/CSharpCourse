@@ -142,8 +142,27 @@ namespace ObjectOrientedProgramming
 
             //var (name, age) = myClass;
             #endregion
-
             //GC.Collect(); // Garbage Collector'u devreye sokmuş oluyoruz.
+
+            #region Static Constructor
+            //new MyClass();
+            //new MyClass();
+            #endregion-
+
+            #region Singleton Design Pattern
+            //var database1 = Database.GetInstance;
+            //var database2 = Database.GetInstance;
+            //var database3 = Database.GetInstance;
+
+            //database1.ConnectionString = "asdasd";
+            #endregion
+
+            #region Positional Record
+            //MyRecord1 m = new("asdasd", "asdasd");
+            //var (n, s) = m;
+            #endregion
+
+
         }
     }
 
@@ -169,7 +188,7 @@ namespace ObjectOrientedProgramming
         //}
         #endregion
         #region Constructor This Keyword
-        // this o anki constructor'ın dışındaki constructorlara erişmemizi sağlar.
+        // this: Sınıftaki diğer constructorlara erişmemizi sağlar.
         // this() parantez içine sadece constructor parametresinden veya kendimiz manuel değer yazabiliriz.
         //public MyClass()
         //{
@@ -211,15 +230,19 @@ namespace ObjectOrientedProgramming
         // Static Constructor ise ilgili sınıftan ilk nesne üretilirken bir kereye mahsus tetiklenin metottur.
         // Bir sınıftan ilk defa nesne üretiliyorsa bir kereye mahsus ilk önce static constructor ardından normal constructor çalışır, daha sonraki üretmelerde normal constructorlar ilk önce çalışır.
         // Static Constructor'da erişim belirleyici olmaz, overloading yapılamaz, bir tane tanımlanabilir, parametre almaz.
+        // Singleton Design Pattern'de kullanılabiliyor.
 
         public MyClass()
         {
             // Bu sınıftan nesne üretilirken ilk tetiklenecek olan metottur.
+            Console.WriteLine("MyClass constructor'ı tetiklenmiştir.");
         }
         static MyClass()
         {
-             // Bu sınıftan ilk nesne üretilirken ilk tetiklenecek olan metottur.
-             // Üretilen ilk nesnenin dışında bir daha tetiklenmez.
+            // Bu sınıftan ilk nesne üretilirken ilk tetiklenecek olan metottur.
+            // Üretilen ilk nesnenin dışında bir daha tetiklenmez.
+            Console.WriteLine("MyClass static constructor'ı tetiklenmiştir.");
+            // static constructor'ın tetiklenebilmesi için illa ilk nesne üretimi yapılmasına gerek yoktur. İlgili sınıf içerisinde herhangi bir static yapılanmanın da tetiklenmesi static const. tetiklenemsini sağlayacaktır.
         }
         #endregion
 
@@ -339,5 +362,144 @@ namespace ObjectOrientedProgramming
             };
         }
     }
+    #endregion
+
+    #region Singleton Design Pattern
+    // Bir sınıftan uygulama bazında sade ve sadece tek bir nesne oluşturulmasını istiyorsan kullanabileceğin bir design patterndır.
+
+    class Database
+    {
+        Database() //private constructor
+        {
+
+        }
+
+        public string ConnectionString { get; set; }
+
+        static Database database;
+        static public Database GetInstance
+        {
+            get
+            {
+                return database;
+            }
+        }
+
+        static Database()
+        {
+            database = new Database();
+        }
+    }
+    #endregion
+
+    #region Positional Record
+    // Bir record üzerinde constructor ve deconsturct yapılanmasını hızlı bir şekilde oluşturmamızı sağlayan bir semantik sağlamaktadır.
+    // Paramatrelerin karşılıkları olan propertyleri manuel oluşturmak zorunda değiliz.
+    // Paramatrelerin karşılığı propertyler compiler seviyesinde otomtik oluşturulacaktır. Bu propertyler init olarak oluşturulur.
+
+    //record MyRecord1(string Name, string Surname)
+    //{
+    //    public MyRecord1(): this("asdasd","qwdasd")
+    //    {
+
+    //    }
+
+    //    public MyRecord1(string name): this()
+    //    {
+
+    //    }
+    //}
+    #endregion
+
+    #region Inheritence
+    // Kalıtım sınıflar özel bir niteliktir.
+    // Bir sınıfın sadece tek bir base class'ı olabilir.
+    // Recordlar'da kalıtım alır lakin kendi aralarında. Ayrıca Object sınıfından da kalıtım alabilirler.
+    // abstract class, interface, struct gibi yapılar da kendi aralarında kalıtımsal operasyonları mevcuttur.
+    // Kalıtım veren sınıfa Base/Parent Class, kalıtım alan sınıf Derived/Child Class denir.
+    // Kalıtım alınan sınıflarında nesnesi üretilir, heapte tutulur.
+
+    #region Kalıtım'da Nesnelerin Oluşma Sırası
+    //// Bir sınıftan nesne oluştururken kalıtım aldığı sınıflar varsa eğer önce o sınıflardan sırayla nesne oluşturulur. En üst kalıtım ilk önce oluşturulur.
+    //class A
+    //{
+    //    // İlk önce bu nesne oluşturulacak.
+    //}
+    //class B : A
+    //{
+    //    // İkinci olarak bu nesne oluşturulacak.
+    //}
+    //class C : B
+    //{
+    //    // Üçüncü olarak bu nesne oluşturulacak.
+    //}
+    #endregion
+    #region Base Keyword
+    // Base classtaki constructor parametresine değer göndermek için kullanılır. Kalıtım alınan sınıftaki constructor metoduna : base(value) şeklinde kullanılır. Base classta sadece parametreli constructor var ise base kullanılması zorunludur.
+    // Bir classın constructor'ının yanına : base( ) getirirsek base classın constructorlarını getirecek ve değer gönderebileceğiz.
+    // Kalıtım alan(derived class)'da base keywordu ile base classtaki field, property, metotlara erişim sağlayabiliriz. base.Y() -> base classtaki Y metodunu çağıracaktır.
+
+    //class A
+    //{
+    //    int a;
+    //    public int b;
+    //    public int MyProperty { get; set; }
+    //}
+    //class B : A
+    //{
+    //    int c;
+    //    public void X()
+    //    {
+    //        // this keywordü ile base class(erişime açık) ve bu classtaki memberlara erişebiliriz
+    //        // base keywordü ile sadece base classtaki erişime açık memberlara erişebiliriz
+    //        // base classtaki memberlara direk isimlerini yazarak da erişebiliriz
+
+    //        //int _a = this.a; // base classta private, erişemeyiz.
+
+    //        int _b = this.b;
+    //        int __b = base.b;
+    //        int ___b = b; // compilar başına base koyacaktır.
+
+    //        int _myProperty = this.MyProperty;
+    //        int __myProperty =  base.MyProperty;
+    //        int ___myProperty = MyProperty; // compilar başına base koyacaktır.
+
+
+    //        // zaten bu classa ait olduğu için erişebiliriz.
+    //        int _c = this.c; // bu classtan
+    //        this.X(); // bu classtan
+    //    }
+    //}
+
+    #endregion
+    #region Object Class
+    // Bütün sınıflar object classından türetilmiştir. (Delegate'ler hariç)
+    // Bu nedenle her türlü türü karşılayabilmektedir.
+
+    #endregion
+    #region Name Hiding
+    // Base class ile aynı isimde bir member tanımlarsak. Base classtaki o member'a erişemeyiz. Buna Name Hiding denir.
+    // Eskiden kalıtım alan sınıftaki bu member'ı new ile işaretlememiz gerekiyordu ancak şu an bu gerekmemekte.
+
+    //class A
+    //{
+    //    public int X { get; set; }
+    //}
+    //class B : A
+    //{
+    //    public int X { get; set; }
+    //}
+    //class C : A
+    //{
+    //    public new int X { get; set; } // compiler'ın uyarı vermemesini sağlamış oluruz.
+    //}
+    #endregion
+    #endregion
+
+    #region Sanal Yapılar (virtual & override)
+    // Bir nesne üzerinde var olan tüm memberların tamamı derleme zamanında belirgindir.
+    // Sanal yapılar ile derleme zamanında kesin bilinen bu bilgi run time(çalışma zamanın)da belirlenebilmektedir. Yani ilgili nesnenin hangi metodu kullanacağı bilgisi kararlaştırılır. 
+    // Sanal yapılar, bir sınıf içerisinde bildirilmiş olan ve o sınıftan türeyen alt sınıflarda da tekrar bildirilebilen yapılardır.
+    // 
     #endregion
 }
