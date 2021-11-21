@@ -162,7 +162,49 @@ namespace ObjectOrientedProgramming
             //var (n, s) = m;
             #endregion
 
+            #region Polimorfizm
+            //A a = new C();
+            //a.X();
 
+            //C c = (C)a; // A türünden olan a referansındaki özünde C nesnesi kendi türünden bir referansla işaretlenmiştir.
+            //c.X();
+            //c.Y();
+            //c.Z();
+
+            //C c = new A(); // Alt sınıf atasını referans edemez.
+            //C c = new B(); // Alt sınıf atasını referans edemez.
+
+            //C c = new C();
+            //A a = c; // cast operatörüne gerek yok bilinçsiz tür dönüşümü yapar.
+
+            #region object türündeki boxing/unboxing davranışının polimorfizm açısından değerlendirilmesi
+            //object a = new A(); //boxing
+            //A _a = (A)a; // unboxing
+
+            //object i = 123; //boxing - stack'ten heap'e
+            //int _i = (int)i; // unboxing - heap'ten stack'e
+
+            // Alt türden üst türe dönüşüm sağlanabilmekte
+            //B b = new C(); // boxing
+            //C c = (C)b; // unboxing
+
+            #endregion
+            #region Cast ve as operatörü ile dönüştürme
+            //// Eğer ki kalıtımsal ilişki olmayan herhangi bir türe dönüştürülmeye çalışılırsa derleyici hatası verecektir.
+            //// Yok eğer aşağıdaki gibi kalıtımsal ilişkide olup fiziksel nesnenin hiyerarşik altında olan bir türe dönüştürülmeye çalışılırsa run time hatası verecektir.
+            //A a = new B();
+            //C c = (C)a; // C'ye cast edemeyiz çünkü B'nin altında kalıyor. Runtime'da hata verir.
+            //C _c = a as C; // üstteki aynı durumu as operatörü ile yaptığımızda bu durumda runtime hatası vermeyecek geriye null değer döndürecektir.
+            //               // Cast operatörünün as operatöründen farkı; biri dönüşüm sağlanamıyorsa hata fırlatırken(cast), diğeri null dönmektedir(as)
+            #endregion
+            #region Kalıtımsal durumlarda is operatörü ile tür kontrolü
+            //A a = new B();
+            //Console.WriteLine(a is A); // true
+            //Console.WriteLine(a is B); // true
+            //Console.WriteLine(a is C); // false - C, B'nin altında kaldığı için.
+            //Console.WriteLine(a is D); // false - kalıtımsal ilişki yok.
+            #endregion
+            #endregion
         }
     }
 
@@ -498,8 +540,95 @@ namespace ObjectOrientedProgramming
 
     #region Sanal Yapılar (virtual & override)
     // Bir nesne üzerinde var olan tüm memberların tamamı derleme zamanında belirgindir.
-    // Sanal yapılar ile derleme zamanında kesin bilinen bu bilgi run time(çalışma zamanın)da belirlenebilmektedir. Yani ilgili nesnenin hangi metodu kullanacağı bilgisi kararlaştırılır. 
+    // Sanal yapılar ile derleme zamanında kesin bilinen bu bilgi run time(çalışma zamanın)da belirlenebilmektedir. Yani ilgili nesnenin hangi metodu kullanacağı bilgisi kararlaştırılır.(base classtaki mi yoksa derived classtaki mi kullanılacak) Buna Late Binding yani geç bağlam denir.
     // Sanal yapılar, bir sınıf içerisinde bildirilmiş olan ve o sınıftan türeyen alt sınıflarda da tekrar bildirilebilen yapılardır.
+    // Sanal yapılanmalarda Name Hiding'de olduğu gibi bir isimsel çakışmadan ziyade üstten gelen bir yapının işlevini iptal edip yeniden yapılandırmak vardır.
+    // static yapılanmalar sanal olarak bildirilemezler.
+    // Türeyen sınıflarda sanal yapıyı ezebilmek için override keywordü kullanılır.
+    // Türeyen sınıflarda sanal yapıyı ezebilmek için override keywordü kullanılır.
+    // Türeyen sınıflar sanal yapıları override ezmek zorunda değildir.
+    // Name hiding kötü bir yapılanmadır onun yerine sanal yapıları kullanırız.
+
+    #endregion
+
+    #region Çok Biçimlilik (Polimorfizim)
+    //// Bir nesnenin birden fazla referans tarafından karşılanabilmesine poliformizm denir.
+    //// Tek Bir referans tarafından birden fazla farklı türdeki nesnenin karşılanmasına da polimorfizm denir.
+    //// İki ya da daha fazla nesnenin aynı tür sınıf tarafından karşılanabilmesi/referans edilebilmesidir.
+    //// Bir nesnenin birden fazla farklı türdeki referans tarafından işaretlenebilmesidir.
+    //// Bir nesnenin kalıtımsal olarak ilişkisi olan diğer nesnelerin referanslarıyla işaretlenebilmesini sağlar.
+    //// Kalıtım ilişkisi olmayan sınıflarda polimorfizm uygulanamaz.
+    //// Bir nesnenin, birden fazla referansla işaretlenmesi; o nesnenin, birden fazla türün davranışlarını gösterebilmesini sağlar.
+
+    //class A
+    //{
+    //    public void X() { }
+    //}
+    //class B : A
+    //{
+    //    public void Y() { }
+    //}
+    //class C : B
+    //{
+    //    public void Z() { }
+    //}
+    //class D
+    //{
+    //    public void W() { }
+    //}
+    ////C c = new C();
+    ////B b = new C();
+    ////A a = new C();
+
+    ////Hangi nesneden hangi methodlara erişebiliriz?
+    //// c.X(), c.Y(), c.Z()
+    //// b.X(), b.Y()
+    //// a.X()
+    #region Static Polimorfizm
+    // Static keyword'u ile ilgisi yok, sadece böyle isim verilmiş
+    // Derleme zamanında sergilenen polimorfizm'dir. Hangi Fonksiyonun çağrılacağına derleme zamanında karar verilir.
+    // C#'da static polimorfizm deyince aklımıza metot overloading gelmelidir.
+    // Method Overloading: Aynı isimde birbirinden farklı imzalara sahip olan metotların tanımlanmasıdır. Ya da başka deyişle bir isme birden fazla farklı türde metot yüklemektir. Haliyle burada bir metodun birden fazla formunun olması polimorfizm'ken, bunlardan kullanılacak olanın derleme zamanında bilinmesi statik polimorfizm olarka nitelendirilmektedir.
+    //class Matematik
+    //{
+    //    public long Topla(int s1, int s2) => s1 + s2;
+    //    public long Topla(int s1, int s2, int s3) => s1 + s2 + s3;
+    //    public long Topla(int s1, int s2, int s3, int s4) => s1 + s2 + s3 + s4;
+    //}
+    //main fonk
+    //Matematik m = new Matematik();
+    //m.Topla(4, 6); // şu an derleme zamanında hangi metot kullanılacağı bilindiği için bu duruma static polimorfizm denilmektedir.
+    #endregion
+    #region Dinamik Polimorfizm
+    // Çalışma zamanında sergilenen polimorfizm'dir. Yani hangi fonksiyonun çalışacağına run time'da karar verilir.
+    // C#'da dinamik polimorfizm deyince akla metot override gelmektedir.
+    // Metot Override; base class'ta virtual olarak işaretlenmiş metotların derived class'ta override edilerek ezilmesi işlemidir. Haliyle burada aynı isimde birden fazla forma sahip fonksiyonun olması polimorfizm'ken, bunlardan hangisinin kullanılacağının çalışma zamanında bilinmesi dinamik polimorfizm olarak nitelendirilmektedir.
+    //class Arac
+    //{
+    //    public virtual void Calistir() => Console.WriteLine("Araç Çalıştı.");
+    //}
+    //class Taksi : Arac
+    //{
+    //    public override void Calistir() => Console.WriteLine("Taksi Çalıştı.");
+    //}
+
+    // main fonk
+    //// Derleme sürecinde hangi çalıştır metodu çalıştırılacak burada belli.
+    //Arac a = new Arac();
+    //a.Calistir();
+
+    //Taksi t = new Taksi();
+    //t.Calistir();
+
+    //// Burada ise hangi çalıştır metodu tetiklenecek çalışma zamanında belli olur.
+    //Arac ta = new Taksi();
+    //ta.Calistir(); // taksi sınıfında override edildiği için oradaki çalışacak.
+
+    #endregion
+    #region Polimorfizm Durumlarında Tür Dönüşümleri
+    // Polimorfizm, OOP'de bir nesnenin kalıtımsal açıdan ataları olan referanslar tarafından işaretlenebilmesidir. Haliyle ilgili nesne, bu ataları olan referans türlerine göre dönüştürülebilmektedir.
     // 
     #endregion
+    #endregion
+
 }
