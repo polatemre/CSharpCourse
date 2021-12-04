@@ -199,14 +199,14 @@
   - Shallow Copy: Referans türlü değişkenlerin/değerlerin default davranışı shallow copy'dir.
   - Deep Copy: Değer türlü değişkenlerde default davranış deep copy'dir.
   
-# Interface:
+## Interface:
   - Prototip şablon görevi görürler. Kalıtım verilen sınıfa kullanılacak metotlarını belirtir.
   - Kalıtım verildiği sınıfta metot gövdeleri oluşturulması zorunludur.
   - Newlenemezler.
   - Metodun gövdesi yazılmaz. İmzaları yazılır.
   - Memberlarına erişim belirteci yazılmaz.
 
-# Abstract Class:
+## Abstract Class:
   - Normal class ve interfacelerin karışımı gibidir.
   - Sanal yapılarla efektif kullanım olanağı sağlar.
   - Gövdesiz metod tanımlanabilir.
