@@ -162,6 +162,10 @@
   - Dizilerde kullansakta kullanmasakta bellekte alan tahsisinde bulunuluyordu, maliyetli oluyordu. Koleksiyonlarda ne kadar veri eklenirse o kadar alan tahsis edilir.
   - Dizilerde ilk değer atandıktan sonra yeniden dizinin boyutunu büyütemezken, koleksiyonlarda böyle bir sınırlama yoktur.
 
+# Dictionary<key, value>:
+  - Key, value değerleri tutulabilir. 
+  - Tekrarlı veri tutulamaz.
+  
 # C# Hazır sınıf ve fonksiyonlar:
   - Math, Random sınıfları
   - Math, Random sınıfları
@@ -171,8 +175,39 @@
 # Metotlar:
   - Metotlarda erişim belirleyici yazılmadığı taktirde varsayılan olarak private olacaktır. Java'da tam tersi public olur.
   - Parametrede in keywordü kullanıldığında o parametredeki değişkeni readonly hale getirir.
+  
+# Static:
+  - Bir sınıf static ise ondan nesne oluşturulamaz. Direk sınıf ismi nokta diyerek üyelere erişilir.
+  - Static class'ta static memberlar bulunabilir.
+  - Normal classlarda da static member bulunabilir.
+  - Constructor static olabilir. Bir defa çalışır.
 
+# Struct:
+  - Belleğin stack bölgesinde tutulurlar.
+  - Diğer struct ve sınıflardan kalıtım alamaz, interfacelerden kalıtım alabilirler.
+  - Class içerisinde struct, struct içerisinde class tanımlanabilir.
+  - new referansı oluşturulmadan da kullanılabilir. OrnekStruct ornekStruct;
+  - Classlardan farkları: parametresiz constructor kullanamayız, fieldlara ilk değer verilmediğinde kendisi default değerleri atamaz o yüzden ilk değerlerini bizim vermiş olmamız gerekir.
+  - 16 byte'a kadar olan bir verimiz var ise structta tutmak daha hızlı olur denilir.
+
+# Enum: 
+  - Sabit değerlerle çalışırken okunabilirliği arttırır.
+  - Varsayılan olarak 1'den başlarlar. Ancak değiştirilebilir.
+  
 # Object Oriented Programming
   -  ``new MyClass()`` şeklinde referanssız bir nesne oluşturulursa bir süre sonra bellekten Garbage Collector tarafından temizlenecektir. Bir referans değişkeni nesneyi işaret etmiyorsa tekrardan bu nesneye erişemeyiz.
   - Shallow Copy: Referans türlü değişkenlerin/değerlerin default davranışı shallow copy'dir.
   - Deep Copy: Değer türlü değişkenlerde default davranış deep copy'dir.
+  
+# Interface:
+  - Prototip şablon görevi görürler. Kalıtım verilen sınıfa kullanılacak metotlarını belirtir.
+  - Kalıtım verildiği sınıfta metot gövdeleri oluşturulması zorunludur.
+  - Newlenemezler.
+  - Metodun gövdesi yazılmaz. İmzaları yazılır.
+  - Memberlarına erişim belirteci yazılmaz.
+
+# Abstract Class:
+  - Normal class ve interfacelerin karışımı gibidir.
+  - Sanal yapılarla efektif kullanım olanağı sağlar.
+  - Gövdesiz metod tanımlanabilir.
+  - Kalıtım verildiği sınıfta interface'ler gibi gövde oluştulması zorunlu değildir. Ancak virtual ile işaretlenmişse onu kalıtım aldığı sınıfta override etmek zorunludur.
