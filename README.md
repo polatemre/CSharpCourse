@@ -176,6 +176,27 @@
   - Metotlarda erişim belirleyici yazılmadığı taktirde varsayılan olarak private olacaktır. Java'da tam tersi public olur.
   - Parametrede in keywordü kullanıldığında o parametredeki değişkeni readonly hale getirir.
   
+# Ref Keyword: 
+  - Ref keywordü, refereanstan gelmektedir.
+  - OOP kavramıdır.
+  - OOP'de nesneler(objects) Ram'de Heap bölgesinde tutulmaktadır.
+  - OOP'de referanslar = operatörü ile iletişime geçebilmeketedirler. Bir referans işaretlediği herhangi bir nesneyi = operatörü sayesinde farklı bir referansa işaretletebilir.
+  - Yani, referanslar da = operatörü neticesinde herhangi bir verisel/nesnesel türeme söz konusu olmamakta, işaretlenmiş nesne diğer referans tarafından işaretlenmektedir.
+  - Değer türlü değişkenlerde referans çalışması yapmak istiyorsak eğer ref keywordü kullanırız.
+  - Ref keywordü, değer türlü değişkenlerin, referans türlü değişkenler gibi çalışmasını sağlayan bir komuttur.
+  - Değer türlü değişkenlerde Shallow Copy yapmamızı sağlayan bir keyworddür.
+  
+## Ref Returns: 
+  - Sadece metotlarda geçerlidir. Ayrıca metotlarda geriye nesnelerde döndürebilmekteyiz. Ayrıca ref returns özelliği sayesinde değer türlü değişkenlerin referanslarını da geriye döndürebilmekteyiz.
+  
+# Out Keyword:
+  - Metotların paramatreleri üzerinden dışarıya değer göndermemizi sağlayan bir keyworddür.
+  - Bir metodun paramatreleri varsayılan olarak inputtur. Haliyle metotlarda tanımlanmış parametreler direkt olarak içeriye değer almaya odaklanırlar.
+  - Eğer ki bir metodun parametresi dışarıya değer çıkaracaksa o parametrenin out keywordüyle işaretlenmesi gerekmektedir.
+  - Bir metot out parametresi barındırıyorsa o parametrelerde metot içerisinde değer atanması gerekmektedir. Aksi takdirde derleyici hatası alınacaktır.
+  - Output paramatre barındıran bir metodu çağırırken, out parametrelere gelecek olan değerleri karşılayacak değişkenler tanımlanmalıdır.
+  - 
+  
 # Static:
   - Bir sınıf static ise ondan nesne oluşturulamaz. Direk sınıf ismi nokta diyerek üyelere erişilir.
   - Static class'ta static memberlar bulunabilir.
